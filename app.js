@@ -58,12 +58,25 @@ window.Webflow.push(() => {
   ///////////////////// END FADE LIST ANIMATION ////////////////
 
   //////////// REFRESH SCROLLTRIGGER after everything has loaded //////////////
+
+  // PICK BETWEEN THE TWO. The load event is a great option to ensure everything is loaded.
+
+  /////////// OPTION 1 - setTimeout ///////////
   //Using a setTimeout to ensure everything has loaded on the page.
 
   setTimeout(() => {
     ScrollTrigger.refresh(true);
     console.log("Scroll Trigger has been refreshed");
   }, 1500); //Refreshes ScrollTrigger after 1.5 seconds to ensure everything has completed loaded and is settled into place.
+
+  ///////// OPTION 2 - Load event /////////
+
+  //Using the 'load' event to ensure everything has loaded on the page
+
+  window.addEventListener("load", () => {
+    ScrollTrigger.refresh(true);
+    console.log("Scroll Trigger has been refreshed");
+  });
 
   ///////////// MANUAL SCROLLTRIGGER REFRESH /////////////////
 
